@@ -8,17 +8,17 @@ const App = () => {
       <Pizza
         name=" Pepperoni"
         description="pep, chesse"
-        img="/public/pizzas/pepperoni.webp"
+        image="/public/pizzas/pepperoni.webp"
       />
       <Pizza
         name=" Hawaiian"
         description="ham, pinapple"
-        img="/public/pizzas/hawaiian.webp"
+        image={"/public/pizzas/hawaiian.webp"}
       />
       <Pizza
         name=" Veggie"
         description="mushrooms, peppers, onions"
-        img="/public/pizzas/veggie.webp"
+        image="/public/pizzas/big_meat.webp"
       />
     </div>
   );
