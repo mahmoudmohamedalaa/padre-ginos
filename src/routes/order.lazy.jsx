@@ -6,7 +6,7 @@ import { CartContext } from "../contexts";
 
 export const Route = createLazyFileRoute("/order")({
   component: Order,
-})
+});
 
 const intl = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -24,7 +24,7 @@ function Order() {
 
   async function checkout() {
     setLoading(true);
-    await fetch("/api/order",{
+    await fetch("/api/order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,18 +50,16 @@ function Order() {
     fetchPizzaTypes();
   }, []);
 
+  function addToCart() {
+    setCart([...cart, { pizza: selectedPizza, size: pizzaSize, price }]);
+  }
+
   return (
     <div className="order-page">
       <div className="order">
         <h2>Create Order</h2>
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setCart([
-              ...cart,
-              { pizza: selectedPizza, size: pizzaSize, price },
-            ]);
-          }}
+          action={addToCart}
         >
           <div>
             <div>
